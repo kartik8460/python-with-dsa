@@ -1,0 +1,11 @@
+PolyMorphism
+Poly    -   Many
+Morph   -   Forms
+
+PolyMorphism means Many-Forms
+
+Four Ways to implement Polymorphism
+1.  Duck Typing
+2.  Operator Overloading
+3.  Method  Overloading
+4.  Method  OverRiding
