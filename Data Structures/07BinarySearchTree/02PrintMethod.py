@@ -23,7 +23,6 @@ class BinarySearchTree:
             print("Tree is Empty")
             return
         root = self.get_root()
-        def print_tree_helper(node):
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 class Node:
-    def __init(self, key):
+    def __init__(self, key):
         self.left = None
         self.right = None
         self.key = key
@@ -58,6 +58,10 @@ class BinarySearchTree:
                     insert_helper(current.right, key)
 
         insert_helper(self.get_root(), key)
+
+    def delete(self, key):
+        if self.is_empty():
+            pass
 
 
 if __name__ == "__main__":
