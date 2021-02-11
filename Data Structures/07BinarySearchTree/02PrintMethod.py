@@ -18,6 +18,13 @@ class BinarySearchTree:
         else:
             return False
 
+    def print_tree(self):
+        if self.is_empty():
+            print("Tree is Empty")
+            return
+        root = self.get_root()
+        def print_tree_helper(node):
+
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
