@@ -1,8 +1,8 @@
 class Node:
     def __init__(self, key):
         self.left = None
-        self.right = None
         self.key = key
+        self.right = None
 
 
 class BinarySearchTree:
@@ -59,37 +59,68 @@ class BinarySearchTree:
 
         insert_helper(self.get_root(), key)
 
-    def delete(self, key):
+    def pre_order_traversal(self):
         if self.is_empty():
             print("Tree is Empty")
             return
-        current_node = self.root
+        node = self.get_root()
 
-        def get_inorder_successor(current_node):
-            node = current_node
-            while node.left is not None:
-                node = node.left
-            return node.left
+        def helper_method(node):
+            if node is None:
+                return
+            print(node.key, end=" ")
+            helper_method(node.left)
+            helper_method(node.right)
 
-        while current_node:
-            if current_node.key == key:
-                break
-            elif current_node.key > key:
-                current_node = current_node.left
-            else:
-                current_node = current_node.right
+        helper_method(node)
+        print()
 
-        if current_node is None:
-            print("Node with key: {} doesn't exist".format(key))
+    def in_order_traversal(self):
+        if self.is_empty():
+            print("Tree is Empty")
             return
+        node = self.get_root()
 
-        if current_node.left is None:
-            temp = current_node.right
+        def helper_method(node):
+            if node is None:
+                return
+            helper_method(node.left)
+            print(node.key, end=" ")
+            helper_method(node.right)
 
-        get_inorder_successor(current_node)
+        helper_method(node)
+        print()
+
+    def post_order_traversal(self):
+        if self.is_empty():
+            print("Tree is Empty")
+            return
+        node = self.get_root()
+
+        def helper_method(node):
+            if node is None:
+                return
+            helper_method(node.left)
+            helper_method(node.right)
+            print(node.key, end=" ")
+
+        helper_method(node)
+        print()
 
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
-    tree.insert_one(1)
-    tree.insert_one(2)
+    tree.insert_one(11)
+    tree.insert_one(6)
+    tree.insert_one(9)
+    tree.insert_one(20)
+    tree.insert_one(4)
+    tree.insert_one(10)
+    tree.insert_one(5)
+    tree.insert_one(17)
+    tree.insert_one(42)
+    tree.insert_one(50)
+    tree.insert_one(30)
+    tree.pre_order_traversal()
+    tree.in_order_traversal()
+    tree.post_order_traversal()
